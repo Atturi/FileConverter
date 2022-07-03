@@ -1,0 +1,65 @@
+﻿<Window x:Class="FileConverter.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FileConverter"
+        mc:Ignorable="d"
+        Title="Converter" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition Width="1.5*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <Button Name="ButtonSelectFile" Content="Select file" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="10" Click="ButtonSelectFile_Click"></Button>
+                <Button Name="ButtonConvert" Content="Convert" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="10" Click="ButtonConvert_Click"></Button>
+            </Grid>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"></RowDefinition>
+                    <RowDefinition Height="1*"></RowDefinition>
+                    <RowDefinition Height="1*"></RowDefinition>
+                    <RowDefinition Height="1*"></RowDefinition>
+                    <RowDefinition Height="1*"></RowDefinition>
+                    <RowDefinition Height="1*"></RowDefinition>
+                    <RowDefinition Height="1*"></RowDefinition>
+                    <RowDefinition Height="2*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition Width="2*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Label Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" VerticalContentAlignment ="Center">Separator:</Label>
+                <TextBox Name="TxtBxSeparator" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" TextChanged="TxtBxSeparator_TextChanged" Width="50" MaxLength="1"/>
+                
+                <Label Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" VerticalContentAlignment="Center">Output file name:</Label>
+                <TextBox Name="TxtBxOutFileName" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Width="170"></TextBox>
+
+                <CheckBox Name="ChBxPrintAttributes" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Checked="ChBxPrintAttributes_Checked" Unchecked="ChBxPrintAttributes_Unchecked">Print attributes</CheckBox>
+                <CheckBox Name="ChBxPrintHeader" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Checked="ChBxPrintHeader_Checked" Unchecked="ChBxPrintHeader_Unchecked">Print header</CheckBox>
+
+                <Label Grid.Row="4" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center">Root node name:</Label>
+                <TextBox x:Name="TxtBxRootName" Grid.Row="4" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Width="170"></TextBox>
+
+                <Label Grid.Row="5" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center">Node name:</Label>
+                <TextBox Name="TxtBxNodeName" Grid.Row="5" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Width="170"></TextBox>
+
+                <CheckBox Name="ChBxHeaderExists" Grid.Row="6" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Checked="ChBxHeaderExists_Checked" Unchecked="ChBxHeaderExists_Unchecked">Node names from header</CheckBox>
+            </Grid>
+        </Grid>
+        <ScrollViewer Grid.Column="1">
+          <TextBlock x:Name="ErrorTextBlock" Grid.Column="1" TextWrapping="Wrap"/>
+        </ScrollViewer>
+    </Grid>
+</Window>
